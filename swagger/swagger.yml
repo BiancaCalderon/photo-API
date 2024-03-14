@@ -1,0 +1,111 @@
+swagger: '2.0'
+info:
+  description: 'API del blog de fotografia'
+  version: '1.0.0'
+  title: 'API del blog de fotografia'
+host: 'localhost:3000'
+basePath: '/'
+schemes:
+  - 'http'
+paths:
+  /posts:
+    get:
+      summary: 'Obtiene todas las publicaciones del blog de fotografia.'
+      responses:
+        200:
+          description: 'Publicaciones del blog de fotografia.'
+          schema:
+            type: 'array'
+            items:
+              $ref: '#/components/Post'
+    post:
+      summary: 'Crea una nueva publicacion en el blog de fotografia.'
+      consumes:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'Crea una nueva publicacion en el blog de fotografia.'
+          required: true
+          schema:
+            $ref: '#/components/Post'
+      responses:
+        200:
+          description: 'Publicacion creada exitosamente.'
+
+  /posts/{postId}:
+    get:
+      summary: 'Obtiene una publicacion del blog de fotografia por ID.'
+      parameters:
+        - in: 'path'
+          name: 'postId'
+          required: true
+          type: 'integer'
+          description: 'ID de la publicacion a obtener.'
+      responses:
+        200:
+          description: 'Publicacion obtenida exitosamente.'
+          schema:
+            $ref: '#/components/Post'
+        400:
+          description: 'Publicacion no encontrada'
+        500:
+          description: 'Error en la respuesta de la API'
+
+    put:
+      summary: 'Actualiza una publicacion existente en el blog de fotografia.'
+      consumes:
+        - 'application/json'
+      parameters:
+        - in: 'path'
+          name: 'postId'
+          required: true
+          type: 'integer'
+          description: 'ID de la publicacion a actualizar.'
+        - in: 'body'
+          name: 'body'
+          description: 'Informacion actualizada de la publicacion.'
+          required: true
+          schema:
+            $ref: '#/components/Post'
+      responses:
+        200:
+          description: 'Publicacion actualizada exitosamente.'
+        400:
+          description: 'Publicacion no encontrada.'
+        500:
+          description: 'Error al esperar respuesta de la API.'
+
+    delete:
+      summary: 'Elimina una publicacion especifica del blog de fotografia.'
+      parameters:
+        - in: 'path'
+          name: 'postId'
+          required: true
+          type: 'integer'
+          description: 'ID de la publicacion a eliminar.'
+      responses:
+        200:
+          description: 'Publicacion eliminada exitosamente.'
+        400:
+          description: 'Publicacion no encontrada.'
+        500:
+          description: 'Error en respuesta de la API.'
+components:
+  Post:
+    type: object
+    properties:
+      title:
+        type: string
+      description:
+        type: string
+      image:
+        type: string
+      author:
+        type: string
+      publishDate:
+        type: string
+      tags:
+        type: array
+        items:
+          type: string

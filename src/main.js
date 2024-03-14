@@ -1,11 +1,19 @@
 import express from 'express'
 import fs from 'fs'
+import swaggerUi from 'swagger-ui-express'
+import YAML from 'yamljs'
 import {
   getPostById, createPost, getAllPosts, updatePost, deletePostById,
 } from './db.js'
 
 const app = express()
 app.use(express.json())
+
+// Cargar la documentación de la API desde el archivo YAML
+const swaggerDocument = YAML.load('./swagger/swagger.yml')
+
+// Documentación de la API utilizando Swagger UI
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 // Middleware para registrar detalles de las solicitudes en log.txt
 app.use((req, res, next) => {
