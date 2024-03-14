@@ -10,6 +10,6 @@ CREATE TABLE IF NOT EXISTS blog_photo (
     description TEXT NOT NULL,
     banner TEXT NOT NULL,
     author VARCHAR(255) NOT NULL,
-    publish_date DATETIME NOT NULL,
+    publishDate DATETIME NOT NULL,
     tags VARCHAR(255) NOT NULL
 );
