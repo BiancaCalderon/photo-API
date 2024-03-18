@@ -1,8 +1,8 @@
-CREATE USER IF NOT EXISTS 'blog_bianca'@'%' IDENTIFIED BY 'zipfest_123';
-GRANT ALL PRIVILEGES ON blog_db.* TO 'blog_bianca'@'%' WITH GRANT OPTION;
+CREATE USER IF NOT EXISTS 'bianca'@'%' IDENTIFIED BY 'zipfest_123';
+GRANT ALL PRIVILEGES ON blog_bianca.* TO 'bianca'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
-USE blog_db;
+USE blog_bianca;
 
 CREATE TABLE IF NOT EXISTS blog_photo (
     id INT AUTO_INCREMENT PRIMARY KEY,
