@@ -1,3 +1,10 @@
 2024-03-14T02:17:42.381Z - GET /posts - Payload: {"title":"Sunset","description":"Took this photo of the sunset while at university","banner":"sunset","author":"Bianca","publishDate":"2024-01-10","tags":"view"}
 2024-03-14T02:18:44.186Z - POST /posts - Payload: {"title":"Family Trip","description":"On a family trip eating icecream","banner":"family","author":"Bianca","publishDate":"2024-02-27","tags":"yummy, icecream"}
 2024-03-14T04:45:16.662Z - GET /posts - Payload: {}
+2024-03-18T00:36:38.169Z - GET /hello - Payload: {}
+2024-03-18T00:36:39.161Z - GET /highLightTitle.png - Payload: {}
+2024-03-18T01:04:49.048Z - GET /posts - Payload: {}
+2024-03-18T01:05:11.511Z - GET /posts - Payload: {}
+2024-03-18T01:05:12.795Z - GET /posts - Payload: {}
+2024-03-18T21:42:37.381Z - GET /posts - Payload: {}
+2024-03-18T21:42:38.835Z - GET /highLightTitle.png - Payload: {}
