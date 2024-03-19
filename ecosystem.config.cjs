@@ -3,7 +3,7 @@ module.exports = {
         name: 'blog bianca',
         script: 'npm',
         args: 'start',
-        log_file: './blog_bianca.txt',
+        log_file: './blog_biancas.txt',
         merge_logs: true
     }]
 }

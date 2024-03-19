@@ -1,0 +1,64 @@
+
+> photo-api@1.0.0 start
+> node src/main.js
+
+Server listening at http://127.0.0.1:22272
+
+> photo-api@1.0.0 start
+> node src/main.js
+
+Server listening at http://127.0.0.1:22272
+
+> photo-api@1.0.0 start
+> node src/main.js
+
+Server listening at http://127.0.0.1:22272
+
+> photo-api@1.0.0 start
+> node src/main.js
+
+Server listening at http://127.0.0.1:22272
+Terminated
+
+> photo-api@1.0.0 start
+> node src/main.js
+
+Server listening at http://127.0.0.1:22272
+Terminated
+
+> photo-api@1.0.0 start
+> node src/main.js
+
+Server listening at http://127.0.0.1:22272
+Terminated
+
+> photo-api@1.0.0 start
+> node src/main.js
+
+Server listening at http://127.0.0.1:22272
+Terminated
+
+> photo-api@1.0.0 start
+> node src/main.js
+
+Server listening at http://127.0.0.1:22272
+
+> photo-api@1.0.0 start
+> node src/main.js
+
+Server listening at http://127.0.0.1:22272
+
+> photo-api@1.0.0 start
+> node src/main.js
+
+Server listening at http://127.0.0.1:22272
+
+> photo-api@1.0.0 start
+> node src/main.js
+
+Server listening at http://127.0.0.1:22272
+
+> photo-api@1.0.0 start
+> node src/main.js
+
+Server listening at http://127.0.0.1:22272

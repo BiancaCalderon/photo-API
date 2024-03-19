@@ -8,3 +8,12 @@
 2024-03-18T01:05:12.795Z - GET /posts - Payload: {}
 2024-03-18T21:42:37.381Z - GET /posts - Payload: {}
 2024-03-18T21:42:38.835Z - GET /highLightTitle.png - Payload: {}
+2024-03-19T02:06:50.512Z - GET /posts - Payload: {}
+2024-03-19T02:06:51.174Z - GET /highLightTitle.png - Payload: {}
+2024-03-19T02:09:53.960Z - GET /posts - Payload: {}
+2024-03-19T02:10:11.528Z - GET /posts - Payload: {}
+2024-03-19T02:10:36.473Z - GET /posts - Payload: {}
+2024-03-19T02:11:02.227Z - GET /posts - Payload: {}
+2024-03-19T02:11:03.392Z - GET /posts - Payload: {}
+2024-03-19T02:22:34.362Z - GET /posts - Payload: {}
+2024-03-19T05:42:39.492Z - GET /posts - Payload: {"title":"Fin de Semana de Campamento","description":"En un campamneto de santa rosa, mucho sol!","banner":"campamento","author":"Bianca","publishDate":"2024-03-25","tags":"summer"}
