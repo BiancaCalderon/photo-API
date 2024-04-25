@@ -1,5 +1,5 @@
-CREATE USER IF NOT EXISTS 'bianca'@'%' IDENTIFIED BY 'zipfest_123';
-GRANT ALL PRIVILEGES ON blog_bianca.* TO 'bianca'@'%' WITH GRANT OPTION;
+CREATE USER IF NOT EXISTS 'blog_bianca'@'%' IDENTIFIED BY 'zipfest_123';
+GRANT ALL PRIVILEGES ON blog_bianca.* TO 'blog_bianca'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
 USE blog_bianca;
