@@ -1,6 +1,7 @@
 2024-03-14T02:17:42.381Z - GET /posts - Payload: {"title":"Sunset","description":"Took this photo of the sunset while at university","banner":"sunset","author":"Bianca","publishDate":"2024-01-10","tags":"view"}
 2024-03-14T02:18:44.186Z - POST /posts - Payload: {"title":"Family Trip","description":"On a family trip eating icecream","banner":"family","author":"Bianca","publishDate":"2024-02-27","tags":"yummy, icecream"}
 2024-03-14T04:45:16.662Z - GET /posts - Payload: {}
+<<<<<<< HEAD
 2024-03-18T00:36:38.169Z - GET /hello - Payload: {}
 2024-03-18T00:36:39.161Z - GET /highLightTitle.png - Payload: {}
 2024-03-18T01:04:49.048Z - GET /posts - Payload: {}
@@ -225,3 +226,15 @@
 2024-04-26T06:51:30.880Z - GET /posts - Payload: {}
 2024-04-27T01:58:24.550Z - GET /posts - Payload: {}
 2024-04-27T01:58:29.610Z - GET /posts - Payload: {}
+=======
+2024-03-18T01:06:10.871Z - GET /posts - Payload: {"title":"Family Trip","description":"On a family trip eating icecream","banner":"family","author":"Bianca","publishDate":"2024-02-27","tags":"yummy, icecream"}
+2024-03-18T01:07:57.723Z - POST / - Payload: {"title":"Fin de Semana de Campamento","description":"En un campamneto de santa rosa, mucho sol!","banner":"campamento","author":"Bianca","publishDate":"2024-03-25","tags":"summer"}
+2024-03-18T01:13:51.869Z - POST / - Payload: {"title":"Fin de Semana de Campamento","description":"En un campamneto de santa rosa, mucho sol!","banner":"campamento","author":"Bianca","publishDate":"2024-03-25","tags":"summer"}
+2024-03-18T01:14:19.787Z - POST / - Payload: {"title":"Fin de Semana de Campamento","description":"En un campamneto de santa rosa, mucho sol!","banner":"campamento","author":"Bianca","publishDate":"2024-03-25","tags":"summer"}
+2024-03-18T01:16:06.747Z - POST / - Payload: {"title":"Fin de Semana de Campamento","description":"En un campamneto de santa rosa, mucho sol!","banner":"campamento","author":"Bianca","publishDate":"2024-03-25","tags":"summer"}
+2024-03-18T01:18:57.222Z - GET / - Payload: {"title":"Fin de Semana de Campamento","description":"En un campamneto de santa rosa, mucho sol!","banner":"campamento","author":"Bianca","publishDate":"2024-03-25","tags":"summer"}
+2024-03-18T01:19:09.467Z - GET /posts - Payload: {"title":"Fin de Semana de Campamento","description":"En un campamneto de santa rosa, mucho sol!","banner":"campamento","author":"Bianca","publishDate":"2024-03-25","tags":"summer"}
+2024-03-18T02:48:28.222Z - GET /posts - Payload: {"title":"Fin de Semana de Campamento","description":"En un campamneto de santa rosa, mucho sol!","banner":"campamento","author":"Bianca","publishDate":"2024-03-25","tags":"summer"}
+2024-03-18T02:51:34.852Z - GET /posts - Payload: {"title":"Fin de Semana de Campamento","description":"En un campamneto de santa rosa, mucho sol!","banner":"campamento","author":"Bianca","publishDate":"2024-03-25","tags":"summer"}
+2024-03-18T02:55:11.606Z - GET /posts - Payload: {"title":"Fin de Semana de Campamento","description":"En un campamneto de santa rosa, mucho sol!","banner":"campamento","author":"Bianca","publishDate":"2024-03-25","tags":"summer"}
+>>>>>>> 7dab2e0e9bae58dfff726ce9dceb4ec6560b2873

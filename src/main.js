@@ -1,19 +1,12 @@
 import express from 'express'
 import fs from 'fs'
-import YAML from 'yamljs'
 import swaggerUi from 'swagger-ui-express'
-import cors from 'cors'
-
+import YAML from 'yamljs'
 import {
-  getPostById, createPost, getAllPosts, updatePost, deletePostById,
+  getPostById, createPost, getAllPosts, updatePost, deletePostById, verifyUser, verifyToken
 } from './db.js'
 
 const app = express()
-
-// Middleware para permitir solicitudes CORS
-app.use(cors())
-
-// Middleware para analizar el cuerpo de las solicitudes entrantes como JSON
 app.use(express.json())
 
 // Cargar la documentación de la API desde el archivo YAML
@@ -53,10 +46,10 @@ app.get('/posts', async (req, res) => {
 // Crear un nuevo post
 app.post('/posts', async (req, res) => {
   const {
-    title, description, banner, author, publishDate, tags,
+    title, description, banner, author, tags,
   } = req.body
   try {
-    const result = await createPost(title, description, banner, author, publishDate, tags)
+    const result = await createPost(title, description, banner, author, tags)
     res.status(201).json({ message: 'Post creado correctamente', postId: result.insertId })
   } catch (error) {
     console.error('Error al crear el post:', error)
@@ -84,10 +77,10 @@ app.get('/posts/:postId', async (req, res) => {
 app.put('/posts/:postId', async (req, res) => {
   const { postId } = req.params
   const {
-    title, description, banner, author, publishDate, tags,
+    title, description, banner, author, tags,
   } = req.body
   try {
-    const result = await updatePost(postId, title, description, banner, author, publishDate, tags)
+    const result = await updatePost(postId, title, description, banner, author, tags)
     if (result.affectedRows > 0) {
       res.json({ message: 'Post actualizado correctamente' })
     } else {
@@ -115,10 +108,37 @@ app.delete('/posts/:postId', async (req, res) => {
   }
 })
 
-// Middleware para manejar errores
-app.use((err, req, res, next) => {
-  console.error('Error:', err)
-  res.status(500).json({ message: 'Se ha producido un error en el servidor' })
+// Verificar el usuario y la contraseña
+app.post('/login', async (req, res) => {
+  const { username, password } = req.body
+  try {
+    const isValidUser = await verifyUser(username, password)
+    if (isValidUser) {
+      const token = 'aquí_generar_token'; // Generar el token JWT aquí
+      res.json({ message: 'Inicio de sesión exitoso', token })
+    } else {
+      res.status(401).json({ message: 'Credenciales incorrectas' })
+    }
+  } catch (error) {
+    console.error('Error al verificar usuario:', error)
+    res.status(500).json({ message: 'Error al verificar usuario' })
+  }
+})
+
+// Verificar el token
+app.post('/verify-token', async (req, res) => {
+  const { token } = req.body
+  try {
+    const isValidToken = await verifyToken(token)
+    if (isValidToken) {
+      res.json({ valid: true })
+    } else {
+      res.status(401).json({ valid: false })
+    }
+  } catch (error) {
+    console.error('Error al verificar el token:', error)
+    res.status(500).json({ message: 'Error al verificar el token' })
+  }
 })
 
 // Iniciando el servidor
