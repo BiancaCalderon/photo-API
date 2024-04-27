@@ -1,12 +1,19 @@
 import express from 'express'
 import fs from 'fs'
-import swaggerUi from 'swagger-ui-express'
 import YAML from 'yamljs'
+import swaggerUi from 'swagger-ui-express'
+import cors from 'cors'
+
 import {
   getPostById, createPost, getAllPosts, updatePost, deletePostById,
 } from './db.js'
 
 const app = express()
+
+// Middleware para permitir solicitudes CORS
+app.use(cors())
+
+// Middleware para analizar el cuerpo de las solicitudes entrantes como JSON
 app.use(express.json())
 
 // Cargar la documentación de la API desde el archivo YAML
@@ -108,8 +115,15 @@ app.delete('/posts/:postId', async (req, res) => {
   }
 })
 
+// Middleware para manejar errores
+app.use((err, req, res, next) => {
+  console.error('Error:', err)
+  res.status(500).json({ message: 'Se ha producido un error en el servidor' })
+})
+
 // Iniciando el servidor
 const port = 22272
 app.listen(port, () => {
   console.log(`Server listening at http://127.0.0.1:${port}`)
 })
+
