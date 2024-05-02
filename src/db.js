@@ -65,12 +65,12 @@ export async function deletePostById(postId) {
 // Función para verificar el usuario y la contraseña
 export async function login(username, password) {
   try {
-    const [rows] = await conn.query('SELECT * FROM administradores WHERE nombre_usuario = ?', [username]);
+    const [rows] = await conn.query('SELECT * FROM administradores WHERE username = ?', [username]);
     if (rows.length === 0) {
       throw new Error('Usuario incorrecto');
     }
     const user = rows[0];
-    if (user.contraseña !== password) {
+    if (user.password !== password) {
       throw new Error('Contraseña incorrecta');
     }
     return true;

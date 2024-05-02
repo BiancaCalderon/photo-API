@@ -2,6 +2,7 @@ import express from 'express'
 import fs from 'fs'
 import swaggerUi from 'swagger-ui-express'
 import YAML from 'yamljs'
+import jwt from 'jsonwebtoken'
 import {
   getPostById, createPost, getAllPosts, updatePost, deletePostById, login, verifyToken
 } from './db.js'
