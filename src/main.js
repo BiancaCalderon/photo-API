@@ -9,11 +9,8 @@ import {
 } from './db.js'
 
 const app = express()
+app.use(cors())
 app.use(express.json())
-
-app.use(cors({
-  origin: 'https://tiburoncin.lat'
-}));
 
 // Cargar la documentación de la API desde el archivo YAML
 const swaggerDocument = YAML.load('./swagger/swagger.yml')
