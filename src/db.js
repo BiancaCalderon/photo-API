@@ -1,4 +1,5 @@
 import conn from './conn.js'
+import jwt from 'jsonwebtoken'
 
 // Función para crear un nuevo post
 export async function createPost(title, description, banner, author, tags) {
@@ -62,7 +63,7 @@ export async function deletePostById(postId) {
 }
 
 // Función para verificar el usuario y la contraseña
-export async function verifyUser(username, password) {
+export async function login(username, password) {
   try {
     const [rows] = await conn.query('SELECT * FROM administradores WHERE nombre_usuario = ?', [username]);
     if (rows.length === 0) {
@@ -82,11 +83,10 @@ export async function verifyUser(username, password) {
 // Función para verificar el token
 export async function verifyToken(token) {
   try {
-    const decodedToken = parseJwt(token);
-    const isValidToken = token !== null && decodedToken.exp * 1000 > Date.now(); 
-    return isValidToken;
+    const decoded = jwt.verify(token, 'token_photo_blog');
+    return decoded;
   } catch (error) {
-    console.error('Error verifying token:', error);
-    return false;
+    throw error;
   }
 }
+

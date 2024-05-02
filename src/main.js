@@ -3,7 +3,7 @@ import fs from 'fs'
 import swaggerUi from 'swagger-ui-express'
 import YAML from 'yamljs'
 import {
-  getPostById, createPost, getAllPosts, updatePost, deletePostById, verifyUser, verifyToken
+  getPostById, createPost, getAllPosts, updatePost, deletePostById, login, verifyToken
 } from './db.js'
 
 const app = express()
@@ -109,37 +109,40 @@ app.delete('/posts/:postId', async (req, res) => {
 })
 
 // Verificar el usuario y la contraseña
-app.post('/login', async (req, res) => {
-  const { username, password } = req.body
+app.post('/admin/login', async (req, res) => {
+  const { username, password } = req.body;
   try {
-    const isValidUser = await verifyUser(username, password)
-    if (isValidUser) {
-      const token = 'aquí_generar_token'; // Generar el token JWT aquí
-      res.json({ message: 'Inicio de sesión exitoso', token })
+    const loginResult = await login(username, password);
+    if (loginResult.success) {
+      const token = jwt.sign({ username }, 'token_photo_blog', { expiresIn: '1h' });      
+      res.json({ success: true, message: 'Inicio de sesión exitoso', token });
     } else {
-      res.status(401).json({ message: 'Credenciales incorrectas' })
+      res.status(401).json({ success: false, message: 'Credenciales inválidas' });
     }
   } catch (error) {
-    console.error('Error al verificar usuario:', error)
-    res.status(500).json({ message: 'Error al verificar usuario' })
+    console.error('Error al iniciar sesión:', error);
+    res.status(500).json({ success: false, message: 'Error en el servidor' });
   }
-})
+});
 
 // Verificar el token
-app.post('/verify-token', async (req, res) => {
-  const { token } = req.body
+app.post('/admin/verify-token', async (req, res) => {
+  const token = req.headers.authorization?.split(' ')[1]; 
+  if (!token) {
+    return res.status(401).json({ success: false, message: 'Token not provided' });
+  }
   try {
-    const isValidToken = await verifyToken(token)
-    if (isValidToken) {
-      res.json({ valid: true })
+    const isAuthenticated = await verifyToken(token);
+    if (isAuthenticated) {
+      return res.status(200).json({ success: true, message: 'User authenticated' });
     } else {
-      res.status(401).json({ valid: false })
+      return res.status(401).json({ success: false, message: 'Unauthorized' });
     }
   } catch (error) {
-    console.error('Error al verificar el token:', error)
-    res.status(500).json({ message: 'Error al verificar el token' })
+    console.error('Error verifying authentication:', error);
+    return res.status(500).json({ success: false, message: 'Internal server error' });
   }
-})
+});
 
 // Iniciando el servidor
 const port = 22272
