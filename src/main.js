@@ -145,6 +145,10 @@ app.get('/admin/verify-token', async (req, res) => {
   }
 });
 
+app.use((req, res) => {
+  res.status(501).json({ message: 'Not Implemented' })
+})
+
 // Iniciando el servidor
 const port = 22272
 app.listen(port, () => {
