@@ -3,12 +3,15 @@ import fs from 'fs'
 import swaggerUi from 'swagger-ui-express'
 import YAML from 'yamljs'
 import jwt from 'jsonwebtoken'
+import cors from 'cors';
 import {
   getPostById, createPost, getAllPosts, updatePost, deletePostById, login, verifyToken
 } from './db.js'
 
 const app = express()
 app.use(express.json())
+
+app.use(cors());
 
 // Cargar la documentación de la API desde el archivo YAML
 const swaggerDocument = YAML.load('./swagger/swagger.yml')
