@@ -67,11 +67,11 @@ export async function login(username, password) {
   try {
     const [rows] = await conn.query('SELECT * FROM administradores WHERE username = ?', [username]);
     if (rows.length === 0) {
-      throw new Error('Usuario incorrecto');
+      return { success: false, message: 'Usuario incorrecto' };
     }
     const user = rows[0];
     if (user.password !== password) {
-      throw new Error('Contraseña incorrecta');
+      return { success: false, message: 'Contraseña incorrecta' };
     }
     return true;
   } catch (error) {
