@@ -111,14 +111,13 @@ app.delete('/posts/:postId', async (req, res) => {
   }
 })
 
-// Verificar el usuario y la contraseña
+// Verificar el usuario y la contraseña 
 app.post('/admin/login', async (req, res) => {
   const { username, password } = req.body;
   try {
     const loginResult = await login(username, password);
     if (loginResult.success) {
-      const token = jwt.sign({ username }, 'token_photo_blog', { expiresIn: '1h' });      
-      res.json({ success: true, message: 'Inicio de sesión exitoso', token });
+      res.json({ success: true, message: 'Inicio de sesión exitoso' });
     } else {
       res.status(401).json({ success: false, message: 'Credenciales inválidas' });
     }
